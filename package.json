@@ -1,0 +1,14 @@
+{
+  "name": "nodejs-hw-mongodb",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Volodymyr Shorobura <shurik180688@gmail.com>",
+  "license": "ISC",
+  "description": ""
+}
