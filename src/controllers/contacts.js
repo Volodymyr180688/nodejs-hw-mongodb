@@ -51,15 +51,15 @@ export async function deleteContactByIdController(req, res, next) {
 
 export async function patchContactByIdController(req, res, next) {
   const { contactId } = req.params;
-  const contact = await updateContact(contactId, req.body);
+  const result = await updateContact(contactId, req.body);
 
-  if (!contact) {
+  if (!result) {
     next(createHttpError(404, 'Contact not found'));
     return;
   }
   res.json({
     status: 200,
     message: 'Successfully patched a contact!',
-    data: contact,
+    data: result.contact,
   });
 }
