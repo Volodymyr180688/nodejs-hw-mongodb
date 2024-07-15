@@ -9,7 +9,15 @@ export const createContact = (contactData) => Contact.create(contactData);
 export const deleteContact = (contactId) =>
   Contact.findOneAndDelete({ _id: contactId });
 
-export const updateContact = (contactId) =>
-  Contact.findOneAndUpdate({
-    _id: contactId,
-  });
+export const updateContact = (contactId, payload, options = {}) =>
+  Contact.findOneAndUpdate(
+    {
+      _id: contactId,
+    },
+    payload,
+    {
+      new: true,
+      includeResultMetadata: true,
+      ...options,
+    },
+  );
