@@ -21,7 +21,9 @@ export const getAllContactsFromDB = async ({
   if (filter.isFavourite !== undefined) {
     contactsQuery.where('isFavourite').equals(filter.isFavourite);
   }
-  const contactsCount = await Contact.countDocuments();
+  const contactsCount = await Contact.find()
+    .merge(contactsQuery)
+    .countDocuments();
 
   const contacts = await contactsQuery
     .skip(skip)
