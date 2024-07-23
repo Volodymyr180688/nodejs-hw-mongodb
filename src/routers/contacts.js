@@ -15,7 +15,10 @@ import {
 } from '../controllers/contacts.js';
 
 const contactsRouter = express.Router();
-const jsonParser = express.json();
+const jsonParser = express.json({
+  type: ['application/json', 'application/vnd.api+json'],
+  limit: '100kb',
+});
 contactsRouter.get('/', ctrlWrapper(getAllContactsController));
 
 contactsRouter.get(
