@@ -11,5 +11,11 @@ export const registerUserController = async (req, res) => {
 };
 
 export const loginUserController = async (req, res) => {
-  await loginUser(req.body);
+  const user = await loginUser(req.body);
+
+  res.send({
+    status: 201,
+    message: 'Successfully logged in an user!',
+    data: user,
+  });
 };
