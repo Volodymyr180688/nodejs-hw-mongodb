@@ -4,27 +4,30 @@ import { registerUserSchema, loginUserSchema } from '../validation/auth.js';
 import {
   registerUserController,
   loginUserController,
+  refreshUsersSessionController,
+  logoutUserController,
 } from '../controllers/auth.js';
 import { validateBody } from '../middlewares/validateBody.js';
 
-const authRouter = express.Router();
-const jsonParser = express.json({
-  type: ['application/json', 'application/vnd.api+json'],
-  limit: '100kb',
-});
+const router = express.Router();
+const parseJSON = express.json();
 
-authRouter.post(
+router.post(
   '/register',
-  jsonParser,
+  parseJSON,
   validateBody(registerUserSchema),
   ctrlWrapper(registerUserController),
 );
 
-authRouter.post(
+router.post(
   '/login',
-  jsonParser,
+  parseJSON,
   validateBody(loginUserSchema),
   ctrlWrapper(loginUserController),
 );
 
-export default authRouter;
+router.post('/logout', parseJSON, ctrlWrapper(logoutUserController));
+
+router.post('/refresh', parseJSON, ctrlWrapper(refreshUsersSessionController));
+
+export default router;
