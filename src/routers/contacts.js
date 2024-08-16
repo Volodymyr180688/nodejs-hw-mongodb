@@ -30,7 +30,7 @@ router.get('/', ctrlWrapper(getAllContactsController));
 router.get('/:contactId', isValidId, ctrlWrapper(getContactByIdController));
 
 router.post(
-  '',
+  '/',
   parseJSON,
   upload.single('photo'),
   validateBody(createContactSchema),
