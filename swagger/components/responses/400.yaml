@@ -1,11 +1,12 @@
 description: Bad request, invalid input data.
 content:
   application/json:
-    type: object
-    properties:
-      status:
-        type: integer
-        example: 400
-      message:
-        type: string
-        example: Invalid input data.
+    schema:
+      type: object
+      properties:
+        status:
+          type: integer
+          example: 400
+        message:
+          type: string
+          example: Invalid input data.

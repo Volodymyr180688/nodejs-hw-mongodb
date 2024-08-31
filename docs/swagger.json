@@ -567,9 +567,9 @@
                     "data": {
                       "type": "object",
                       "properties": {
-                        "id": {
+                        "_id": {
                           "type": "string",
-                          "example": "abc123"
+                          "example": "66afe4c85f5aac642079bbf8"
                         },
                         "email": {
                           "type": "string",
@@ -849,7 +849,7 @@
                     "description": "User's email address for password reset",
                     "type": "string",
                     "format": "email",
-                    "example": "user@example.com"
+                    "example": "johnsmit@gmail.com.com"
                   }
                 }
               }
@@ -1061,15 +1061,17 @@
         "description": "Bad request, invalid input data.",
         "content": {
           "application/json": {
-            "type": "object",
-            "properties": {
-              "status": {
-                "type": "integer",
-                "example": 400
-              },
-              "message": {
-                "type": "string",
-                "example": "Invalid input data."
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 400
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Invalid input data."
+                }
               }
             }
           }
@@ -1118,7 +1120,11 @@
           "application/json": {
             "schema": {
               "type": "object",
-              "required": "-status -message -data",
+              "required": [
+                "status",
+                "message",
+                "data"
+              ],
               "properties": {
                 "status": {
                   "type": "integer",
@@ -1130,7 +1136,9 @@
                 },
                 "data": {
                   "type": "object",
-                  "required": "-message",
+                  "required": [
+                    "message"
+                  ],
                   "properties": {
                     "message": {
                       "type": "string",
@@ -1170,12 +1178,14 @@
             "schema": {
               "type": "object",
               "properties": {
-                "status": "integer",
-                "example": 500
-              },
-              "message": {
-                "type": "string",
-                "example": "Internal server error."
+                "status": {
+                  "type": "integer",
+                  "example": 500
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Internal server error."
+                }
               }
             }
           }

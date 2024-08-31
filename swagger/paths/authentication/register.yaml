@@ -50,9 +50,9 @@ responses:
             data:
               type: object
               properties:
-                id:
+                _id:
                   type: string
-                  example: 'abc123'
+                  example: 66afe4c85f5aac642079bbf8
                 email:
                   type: string
                   example: johnsmit@gmail.com

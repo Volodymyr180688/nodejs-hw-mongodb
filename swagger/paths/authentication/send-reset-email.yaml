@@ -19,7 +19,7 @@ requestBody:
             description: "User's email address for password reset"
             type: string
             format: email
-            example: user@example.com
+            example: johnsmit@gmail.com.com
 responses:
   '200':
     description: Reset email sent successfully
