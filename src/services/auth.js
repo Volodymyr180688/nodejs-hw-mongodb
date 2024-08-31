@@ -199,6 +199,8 @@ export const loginOrSignupWithGoogle = async (code) => {
     });
   }
 
+  await SessionsCollection.deleteOne({ userId: user._id });
+
   const newSession = createSession();
 
   return await SessionsCollection.create({
